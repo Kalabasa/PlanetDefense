@@ -114,7 +114,7 @@
 		},
 
 		makeEnemies: function() {
-			const max = 2 + Math.ceil(Math.log(this.time * 3 * game.PER_SEC, 2));
+			const max = Math.min(2 + Math.ceil(Math.log(this.time * 2 * game.PER_SEC, 2)), 12);
 			const interval = 3 * (1 - Math.cos(this.time / (8 * game.SEC) * 2 * Math.PI)) * game.SEC;
 
 			const baseAngle = this.time * 0.1 * Math.PI * game.PER_SEC;

@@ -103,7 +103,7 @@
 						app.stage.removeChild(obj);
 					}, this));
 					app.stage.addChild(explosion.view.obj);
-					explosion.view.obj.rotation = Math.PI / 8 * (2 * Math.random() - 1);
+					explosion.view.obj.rotation = Math.PI * 2 * Math.random();
 				}
 				var sprite = explosion.view.obj;
 				sprite.position.copy(explosion.pos);

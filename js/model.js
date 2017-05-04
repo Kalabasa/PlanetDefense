@@ -42,7 +42,7 @@
 					var rr = explosion.radius;
 					rr *= rr;
 					if (util.distance2(station.pos, explosion.pos) <= rr) {
-						station.cooldown = Math.max(station.cooldown, 6 * game.SEC);
+						station.cooldown = Math.max(station.cooldown, 1 * game.SEC);
 					}
 				}
 			}
@@ -114,10 +114,10 @@
 		},
 
 		makeEnemies: function() {
-			const max = Math.min(2 + Math.ceil(Math.log(this.time * 2 * game.PER_SEC, 2)), 12);
-			const interval = 3 * (1 - Math.cos(this.time / (8 * game.SEC) * 2 * Math.PI)) * game.SEC;
+			const max = Math.min(1 + Math.ceil(Math.log(this.time * 2 * game.PER_SEC, 3)), 12);
+			const interval = 6 * (1 - Math.cos(this.time / (12 * game.SEC) * 2 * Math.PI)) * game.SEC;
 
-			const baseAngle = this.time * 0.1 * Math.PI * game.PER_SEC;
+			const baseAngle = this.time * 0.2 * Math.PI * game.PER_SEC;
 			const angleRange = Math.min(1, 0.1 + this.time * 0.004 * game.PER_SEC);
 
 			const baseSpeed = 30 * game.PER_SEC;
@@ -130,7 +130,7 @@
 				this.lastSpawnTime = this.time;
 				var enemy = this.enemies.add();
 				var angle = baseAngle + angleRange * 2 * Math.PI * Math.random();
-				var distance = 389 + Math.random() * 40;
+				var distance = 389 + Math.random() * 50;
 				enemy.pos.x = Math.cos(angle) * distance;
 				enemy.pos.y = Math.sin(angle) * distance;
 				enemy.speed = Math.min(maxSpeed, baseSpeed + Math.floor(speedRange * Math.random() / speedGrades) * speedGrades);
